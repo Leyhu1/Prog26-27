@@ -71,7 +71,7 @@ public class Main {
         System.out.println("escribe el precio de venta real:");
         double v = scanner.nextDouble();
 
-        System.out.println("el porcentaje del descuento es: " + (p / v - 1) * 100 );
+        System.out.println("el porcentaje del descuento es: " + ((p - v ) / v) * 100);
         /*
         Ejercicio 7: Escribe un programa que lea un valor correspondiente a una distancia en millas marinas
         y escriba la distancia en metros. Sabiendo que una milla marina equivale a 1.852 metros
@@ -86,6 +86,94 @@ public class Main {
         /*
         Ejercicio 8: Escribe un programa que lee dos números y los visualiza en orden ascendente.
          */
+        System.out.println("Ejercicio 8:");
 
+        scanner = new Scanner(System.in);
+        System.out.println("escribe el primer numero:");
+        double num1 = scanner.nextDouble();
+        System.out.println("escribe el segundo numero:");
+        double num2 = scanner.nextDouble();
+
+        double menor = Math.min(num1, num2);
+        double mayor = Math.max(num1, num2);
+
+        System.out.println("numeros en orden ascendente: " + menor + ", " + mayor );
+        /*
+        Ejercicio 9: Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales
+         */
+        System.out.println("Ejercicio 9:");
+
+        scanner = new Scanner(System.in);
+        System.out.println("escribe el primer numero:");
+        int n1 = scanner.nextInt();
+        System.out.println("escribe el segundo numero:");
+        int n2 = scanner.nextInt();
+
+        int menor1 = Math.min(n1, n2);
+        int mayor1 = Math.max(n1, n2);
+
+        System.out.println("el mayor es: " + mayor1 + " es igual: " + (mayor1 == menor1) );
+        /*
+        Ejercicio 10: escribe un programa que lea tres números distintos y nos diga cuál es el mayor
+         */
+        System.out.println("Ejercicio 10:");
+
+        scanner = new Scanner(System.in);
+        System.out.println("escribe el primer numero:");
+        int nu1 = scanner.nextInt();
+        System.out.println("escribe el segundo numero:");
+        int nu2 = scanner.nextInt();
+        System.out.println("escribe el tercer numero:");
+        int nu3 = scanner.nextInt();
+
+        int max1 = Math.max(nu1, nu2);
+        int max2 = Math.max(max1, nu3);
+
+        System.out.println("el mayor es: " + max2 );
+        /*
+        Ejercicio 11: Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta,
+        producto y división. (Ten en cuenta la división por cero).
+         */
+        System.out.println("Ejercicio 11:");
+        scanner = new Scanner(System.in);
+        System.out.println("ingrese el primer numero: ");
+        double c = scanner.nextDouble();
+        System.out.println("ingrese el segundo numero: ");
+        double d = scanner.nextDouble();
+
+        double suma1 = c + d;
+        double resta1 = c - d;
+        double producto1 = c * d;
+        double division1 = c / d;
+
+        System.out.println("la suma es: "+ suma1);
+        System.out.println("la resta es: "+ resta1);
+        System.out.println("el producto es: "+ producto1);
+        System.out.println("la division es: "+ division1);
+        /*
+        Ejercicio 12: Escribe un programa que lee 2 números y muestra el mayor
+         */
+        System.out.println("Ejercicio 12:");
+
+        scanner = new Scanner(System.in);
+        System.out.println("escribe el primer numero:");
+        int num6 = scanner.nextInt();
+        System.out.println("escribe el segundo numero:");
+        int num7 = scanner.nextInt();
+
+        int mayor3 = Math.max(num6, num7);
+
+        System.out.println("el mayor es: " + mayor3);
+        /*
+        Ejercicio 13: Escribe un programa que lee un número y me dice si es positivo o negativo
+        consideraremos el cero como positivo.
+         */
+        System.out.println("Ejercicio 13:");
+
+        scanner = new Scanner(System.in);
+        System.out.println("escribe el numero:");
+        double num8 = scanner.nextDouble();
+
+        System.out.println("es positivo?: " + (num8 >= 0));
     }
 }
