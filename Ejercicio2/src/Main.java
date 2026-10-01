@@ -157,6 +157,126 @@ public class Main {
         Ejercicio 10: Realiza un programa que lea 10 números no nulos y luego muestre un mensaje de si ha
         leído algún número negativo o no
          */
+        System.out.println("Ejercicio 10:");
 
+        scanner = new Scanner(System.in);
+        int cantidadnumeros = 10;
+        boolean numeronegativo = false;
+        System.out.println("por favor, introduce " + cantidadnumeros + " numeros");
+
+        for (int i = 1; i <= cantidadnumeros; i++){
+
+            double num;
+
+            while (true){
+                System.out.println("Numero "+ i + ": ");
+                num = scanner.nextDouble();
+
+                if (num != 0){
+                    break;
+                }
+                System.out.println("el numero no puede ser cero, intentelo de nuevo");
+            }
+            if (num < 0){
+                numeronegativo = true;
+            }
+        }
+        if (numeronegativo){
+            System.out.println("se ha leido algun numero negativo");
+        } else {
+            System.out.println("no se ha leido ningun numero negativo");
+        }
+
+        /*
+        Ejercicio 11: Realiza un programa que lea 10 números no nulos y luego muestre un mensaje
+        indicando cuántos son positivos y cuantos negativos.
+         */
+        System.out.println("Ejercicio 11:");
+
+        scanner = new Scanner(System.in);
+        int positivo = 0;
+        int negativo = 0;
+        System.out.println("por favor, introduce " + 10 + " numeros");
+
+        for (int i = 1; i <= 10; i++){
+
+            int num1;
+
+            while (true){
+                System.out.println("Numero "+ i + ": ");
+                num1 = scanner.nextInt();
+                if (num1 != 0){
+                    break;
+                }
+                System.out.println("el numero no puede ser cero, intentelo de nuevo");
+            }
+            if (num1 > 0){
+                positivo++;
+            } else {
+                negativo++;
+            }
+        }
+        System.out.println("Resultados:");
+        System.out.println("numeros positivos: "+ positivo);
+        System.out.println("numeros negativos: "+ negativo);
+
+        /*
+        Ejercicio 12: Realiza un programa que lea una secuencia de números no nulos hasta que se introduzca
+        un 0, y luego muestre si ha leído algún número negativo, cuantos positivos y cuantos
+        negativos.
+         */
+        System.out.println("Ejercicio 12:");
+
+        scanner = new Scanner(System.in);
+        int positivo1 = 0;
+        int negativo1 = 0;
+        System.out.println("por favor, introduce numeros");
+
+        for (int i = 1; i != 0; i++){
+
+            int num2;
+
+            System.out.println("Numero "+ i + ": ");
+            num2 = scanner.nextInt();
+
+            if (num2 == 0){
+                break;
+            }
+            if (num2 > 0){
+                positivo1++;
+            } else {
+                negativo1++;
+            }
+        }
+        System.out.println("Resultados:");
+        System.out.println("numeros positivos: "+ positivo1);
+        System.out.println("numeros negativos: "+ negativo1);
+
+        /*
+        Ejercicio 13: Realiza un programa que calcule y escriba la suma y el producto de los 10 primeros
+        números naturales.
+         */
+        System.out.println("Ejercicio 13:");
+        int num3 = 0;
+        int num4 = 1;
+        for (int i = 1; i <= 10; i++){
+            num3 += i;
+            num4 *= i;
+        }
+        System.out.println("Suma: "+ num3);
+        System.out.println("Producto: "+ num4);
+
+        /*
+        Ejercicio 14: Escribe un programa que calcula el salario neto semanal de un trabajador en función del
+        número de horas trabajadas y la tasa de impuestos de acuerdo a las siguientes hipótesis:
+            • Las primeras 35 horas se pagan a tarifa normal.
+            • Las horas que pasen de 35 se pagan a 1,5 veces la tarifa normal.
+            • Las tasas de impuestos son:
+            • Los primeros 500 euros son libres de impuestos.
+            • Los siguientes 400 tienen un 25% de impuestos.
+            • Los restantes un 45% de impuestos.
+        Escribir nombre, salario bruto, tasas y salario neto.
+         */
+        System.out.println("Ejercicio 14:");
     }
 }
