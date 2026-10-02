@@ -278,5 +278,38 @@ public class Main {
         Escribir nombre, salario bruto, tasas y salario neto.
          */
         System.out.println("Ejercicio 14:");
+        scanner = new Scanner(System.in);
+        System.out.println("Escribe tu nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.println("Escribe tu numero de horas: ");
+        double horas = scanner.nextDouble();
+        System.out.println("Escribe tu tarifa: ");
+        double tarifa = scanner.nextDouble();
+
+        double bruto = 0;
+        if (horas <= 35){
+            bruto = horas * tarifa;
+        } else {
+            double hnormal = 35;
+            double hextra = horas - 35;
+            bruto = (hnormal * tarifa) + (hextra * tarifa * 1.5);
+        }
+        double impuestos = 0;
+        if (bruto <= 500){
+            impuestos = 0;
+        } else {
+            if (bruto <= 900 ){
+                impuestos = (bruto - 500) * 0.25;
+            } else {
+                impuestos = (400 * 0.25) + (bruto - 900) * 0.45;
+
+            }
+        }
+        double neto = bruto - impuestos;
+
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Salario Bruto: "+ bruto + "€");
+        System.out.println("Tasas: "+ impuestos +"€");
+        System.out.println("Salario Neto: "+ neto +"€");
     }
 }
