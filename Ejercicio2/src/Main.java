@@ -46,8 +46,10 @@ public class Main {
          */
         System.out.println("Ejercicio 4:");
 
-        for (int i = 1; i <= 100; i++) {
-            System.out.println( i + i);
+        for (int i = 0; i <= 200; i = i + 2) {
+            if(i != 0){
+                System.out.println("el numero par es: "+i);
+            }
         }
         /*
         Ejercicio 5: Realiza un programa que muestre los números pares comprendidos entre el 1 y el 200.
@@ -56,7 +58,9 @@ public class Main {
         System.out.println("Ejercicio 5:");
 
         for (int i = 1; i <= 200; i++) {
-            System.out.println(i);
+            if(i % 2 == 0){
+                System.out.println("el numero par es: "+i);
+            }
         }
         /*
         Ejercicio 6: Realiza un programa que muestre los números desde el 1 hasta un número N que se
@@ -81,28 +85,23 @@ public class Main {
          */
         System.out.println("Ejercicio 7:");
         scanner = new Scanner(System.in);
+        System.out.println("porfavor introduzca su nota:");
+        double calificacion = scanner.nextDouble();
 
-        int calificacion = scanner.nextInt();
-
-        switch (calificacion){
-            case 0, 1, 2:
-                System.out.println("Muy deficiente");
-                break;
-            case 3, 4:
-                System.out.println("Insuficiente");
-                break;
-            case 5:
-                System.out.println("bien");
-                break;
-            case 6, 7, 8:
-                System.out.println("Notable");
-                break;
-            case 9, 10:
-                System.out.println("Sobresaliente");
-                break;
-            default:
-                System.out.println("di un numero del 0 al 10");
+        if (calificacion >= 0 && calificacion < 3){
+            System.out.println("Muy Deficiente");
+        } else if (calificacion >= 3 && calificacion < 5){
+            System.out.println("insuficiente");
+        } else if (calificacion >= 5 && calificacion < 6) {
+            System.out.println("bien");
+        } else if (calificacion >= 6 && calificacion < 9) {
+            System.out.println("notable");
+        } else if (calificacion >= 9 && calificacion <= 10) {
+            System.out.println("sobresaliente");
+        } else {
+            System.out.println("porfavor, eliga un numero entre el 0 y el 10");
         }
+
         /*
         Ejercicio 8: Realiza un programa que lea un número positivo N y calcule y visualice su factorial N!
         Siendo el factorial:
@@ -118,8 +117,8 @@ public class Main {
         scanner = new Scanner(System.in);
 
         System.out.println("introduzca el numero");
-        int n = scanner.nextInt();
-        int factorial = 1;
+        double n = scanner.nextDouble();
+        double factorial = 1;
         for (int i = 1; i <= n; i++) {
             factorial *= i;
         }
