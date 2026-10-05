@@ -16,21 +16,39 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce la cantidad de Euros (Billetes)");
         int euros = scanner.nextInt();
-        int billete5 = 1;
-        int billete10 = 1;
-        int billete20 = 1;
-        int billete50 = 1;
-        int billete100 = 1;
-        int billete200 = 1;
-        int billete500 = 1;
-        for (int i = 1; i <= euros; i++){
-            billete5 /=i;
-            billete10 /=i;
-            billete20 /=i;
-            billete50 /=i;
-            billete100 /=i;
-            billete200 /=i;
-            billete500 /=i;
+        int billete5 = 0;
+        int billete10 = 0;
+        int billete20 = 0;
+        int billete50 = 0;
+        int billete100 = 0;
+        int billete200 = 0;
+        int billete500 = 0;
+        while (euros > 0) {
+            if (euros >= 500) {
+                euros = euros - 500;
+                billete500++;
+            } else if (euros >= 200) {
+                euros = euros - 200;
+                billete200++;
+            } else if (euros >= 100) {
+                euros = euros - 100;
+                billete100++;
+            } else if (euros >= 50) {
+                euros = euros - 50;
+                billete50++;
+            } else if (euros >= 20) {
+                euros = euros - 20;
+                billete20++;
+            } else if (euros >= 10) {
+                euros = euros - 10;
+                billete10++;
+            } else if (euros >= 5) {
+                euros = euros - 5;
+                billete5++;
+            } else {
+                System.out.println("te faltan monedas, es recomendable usar billetes, intentelo de nuevo");
+                break;
+            }
         }
         System.out.println("billetes 500: "+ billete500);
         System.out.println("billetes 200: "+ billete200);
@@ -40,5 +58,36 @@ public class Main {
         System.out.println("billetes 10: "+ billete10);
         System.out.println("billetes 5: "+ billete5);
 
+        /*
+        Ejercicio 2: Realiza un programa que muestre un menú de opciones como el siguiente:
+            1. Sumar
+            2. Restar
+            3. Multiplicar
+            4. Dividir (incluir manejo de división por 0)
+            5. Salir
+        El menú debe de repetirse hasta que se escoja la opción 5 (Salir).
+         */
+        System.out.println("Ejercicio 2: ");
+        scanner = new Scanner(System.in);
+        System.out.println("Escoje una opcion:");
+        int eleccion = scanner.nextInt();
+
+            switch (eleccion) {
+                case 1:
+                    System.out.println("Suma");
+                    break;
+                case 2:
+                    System.out.println("Resta");
+                    break;
+                case 3:
+                    System.out.println("Multipicacion");
+                    break;
+                case 4:
+                    System.out.println("Division");
+                    break;
+                case 5:
+                    System.out.println("Salir");
+                    break;
+            }
     }
 }
