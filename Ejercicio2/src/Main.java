@@ -278,10 +278,13 @@ public class Main {
          */
         System.out.println("Ejercicio 14:");
         scanner = new Scanner(System.in);
+
         System.out.println("Escribe tu nombre: ");
         String nombre = scanner.nextLine();
+
         System.out.println("Escribe tu numero de horas: ");
-        double horas = scanner.nextDouble();
+        double horas = Math.abs(scanner.nextDouble());
+
         System.out.println("Escribe tu tarifa: ");
         double tarifa = scanner.nextDouble();
 
