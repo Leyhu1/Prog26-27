@@ -14,8 +14,13 @@ public class Main {
          */
         System.out.println("Ejercicio 1:");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce la cantidad de Euros (Billetes)");
-        int euros = scanner.nextInt();
+        int euros;
+        //Pido la cantidad de euros que sea multiplo de 5, si no es multiplo de 5 se repetira hasta que sea multiplo de 5
+        do {
+            System.out.println("Introduce la cantidad de Euros (Billetes)");
+            euros = Math.abs(scanner.nextInt());
+        } while(euros % 5 != 0);
+
         int billete5 = 0;
         int billete10 = 0;
         int billete20 = 0;
@@ -50,13 +55,27 @@ public class Main {
                 break;
             }
         }
-        System.out.println("billetes 500: "+ billete500);
-        System.out.println("billetes 200: "+ billete200);
-        System.out.println("billetes 100: "+ billete100);
-        System.out.println("billetes 50: "+ billete50);
-        System.out.println("billetes 20: "+ billete20);
-        System.out.println("billetes 10: "+ billete10);
-        System.out.println("billetes 5: "+ billete5);
+        if (billete500 != 0){
+            System.out.println("billetes 500: "+ billete500);
+        }
+        if (billete200 != 0){
+            System.out.println("billetes 200: "+ billete200);
+        }
+        if (billete100 != 0){
+            System.out.println("billetes 100: "+ billete100);
+        }
+        if (billete50 != 0){
+            System.out.println("billetes 50: "+ billete50);
+        }
+        if (billete20 != 0){
+            System.out.println("billetes 20: "+ billete20);
+        }
+        if (billete10 != 0){
+            System.out.println("billetes 10: "+ billete10);
+        }
+        if (billete5 != 0){
+            System.out.println("billetes 5: "+ billete5);
+        }
 
         /*
         Ejercicio 2: Realiza un programa que muestre un menú de opciones como el siguiente:
@@ -69,25 +88,49 @@ public class Main {
          */
         System.out.println("Ejercicio 2: ");
         scanner = new Scanner(System.in);
-        System.out.println("Escoje una opcion:");
-        int eleccion = scanner.nextInt();
+        String eleccion = "5";
+        System.out.println("elige el primer numero");
+        double num1 = scanner.nextInt();
+        System.out.println("elige el segundo numero");
+        double num2 = scanner.nextInt();
+        do {
+            System.out.println("Escoje una opcion:");
+            System.out.println("1. Suma:");
+            System.out.println("2. Resta:");
+            System.out.println("3. Multiplicar:");
+            System.out.println("4. Division:");
+            System.out.println("5. Salir:");
 
-            switch (eleccion) {
-                case 1:
-                    System.out.println("Suma");
-                    break;
-                case 2:
-                    System.out.println("Resta");
-                    break;
-                case 3:
-                    System.out.println("Multipicacion");
-                    break;
-                case 4:
-                    System.out.println("Division");
-                    break;
-                case 5:
-                    System.out.println("Salir");
-                    break;
-            }
+            eleccion = scanner.nextLine();
+
+                switch (eleccion){
+                    case "1":
+                        System.out.println("Resultado: "+ (num1 + num2));
+                        break;
+                    case "2":
+                        System.out.println("Resultado: "+ (num1 - num2));
+                        break;
+                    case "3":
+                        System.out.println("Resultado: "+ num1 * num2);
+                        break;
+                    case "4":
+                        if (num1 == 0){
+                            System.out.println("Error, no se puede dividir con un cero, intentelo de nuevo");
+                            break;
+                        } else if (num2 == 0) {
+                            System.out.println("Error, no se puede dividir con un cero, intentelo de nuevo");
+                            break;
+                        } else {
+                            System.out.println("Resultado: "+ num1 / num2);
+                            break;
+                        }
+                    case "5":
+                        System.out.println("El programa se cerrara");
+                        break;
+                    default:
+                        System.out.println("Eliga un numero porfavor");
+                        break;
+                }
+        } while (!eleccion.equals("5"));
     }
 }
