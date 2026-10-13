@@ -250,5 +250,151 @@ public class Main {
         Ejercicio 7: Crea un programa que pida dos valores enteros P y Q, luego cree un array que contenga
         todos los valores desde P hasta Q, y lo muestre por pantalla.
          */
+        System.out.println("Ejercicio 7:");
+        scanner = new Scanner(System.in);
+        System.out.println("Introduce el valor P: ");
+        int p = scanner.nextInt();
+        System.out.println("Introduce el valor Q: ");
+        int q = scanner.nextInt();
+
+        int vector1[] = new int[q - p + 1];
+        for (int i = 0; i < vector1.length; i++){
+            vector1[i] = p + i;
+        }
+        System.out.println("Array: ");
+        for (int i = 0; i < vector1.length; i++){
+            System.out.println(vector1[i] + " ");
+        }
+        /*
+        Ejercicio 8: Crea un programa que cree un array con 100 números reales aleatorios entre 0.0 y 1.0,
+        utilizando Math.random(), y luego le pida al usuario un valor real R. Por último, mostrará
+        cuántos valores del array son igual o superiores a R.
+         */
+        System.out.println("Ejercicio 8:");
+        scanner = new Scanner(System.in);
+
+        double array[] = new double[100];
+
+        for (int i = 0; i < array.length; i++){
+            array[i] = Math.random();
+        }
+        System.out.println("introduzca su valor real del 0.0 al 1.0: ");
+        double r = scanner.nextDouble();
+        int cuantos = 0;
+        for (int i = 0; i < array.length; i++){
+
+            if (array[i] >= r){
+                cuantos++;
+            }
+        }
+        System.out.println("Cantidad de numeros mayores o iguales: " + cuantos);
+
+        /*
+        Ejercicio 9:  Crea un programa que cree un array de enteros de tamaño 100 y lo rellene con valores
+        enteros aleatorios entre 1 y 10 (utiliza 1 + Math.random()*10). Luego pedirá un valor N
+        y mostrará en qué posiciones del array aparece N.
+         */
+        System.out.println("Ejercicio 9:");
+        scanner = new Scanner(System.in);
+
+        int array1[] = new int[100];
+
+        for (int i = 0; i < array1.length; i++){
+            array1[i] = (int) (1 + Math.random() * 10);
+        }
+        System.out.println("introduzca su valor N del 1 al 10: ");
+        int n1 = scanner.nextInt();
+        System.out.println("Posiciones en donde aparece N: ");
+        for (int i = 0; i < array1.length; i++){
+
+            if (array1[i] == n1){
+                System.out.println(" " + i);
+            }
+        }
+        System.out.println();
+
+        /*
+        Ejercicio 10: Crea un programa para realizar cálculos relacionados con la altura (en metros) de
+        personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por
+        teclado. Luego mostrará la altura media, máxima y mínima, así como cuántas personas
+        miden por encima y por debajo de la media.
+         */
+        System.out.println("Ejercicio 10:");
+        scanner = new Scanner(System.in);
+
+        System.out.println("cuantas alturas vas a introducir");
+        int n2 = scanner.nextInt();
+        double alturas[] = new double[n2];
+
+        for (int i = 0; i < alturas.length; i++){
+            System.out.println("Altura " + i);
+            alturas[i] = scanner.nextDouble();
+        }
+
+        double suma2 = 0;
+        double media1;
+        double max = alturas[0];
+        double min = alturas[0];
+        for (int i = 0; i < alturas.length; i++){
+
+            suma2 += alturas[i];
+            if (alturas[i] > max){
+                max = alturas[i];
+            }
+            if (alturas[i] < min){
+                min = alturas[i];
+            }
+        }
+        media1 = suma2 / n2;
+
+        int encima = 0;
+        int debajo = 0;
+        for (int i = 0; i < alturas.length; i++){
+
+            if (alturas[i] > media1){
+                encima++;
+            }
+            if (alturas[i] < media1){
+                debajo++;
+            }
+        }
+        System.out.println("Altura Media: " + media1 + "m");
+        System.out.println("Altura Maxima: " + max + "m");
+        System.out.println("Altura Minima: " + min + "m");
+        System.out.println("Personas que miden por encima de la Media: " + encima);
+        System.out.println("Personas que miden por debajo de la Media: " + debajo);
+
+        /*
+        Ejercicio 11: Crea un programa que cree dos arrays de enteros de tamaño 100. Luego introducirá en
+        el primer array todos los valores del 1 al 100. Por último, deberá copiar todos los valores
+        del primer array al segundo array en orden inverso, y mostrar ambos por pantalla.
+         */
+        System.out.println("Ejercicio 11:");
+
+        int length = 100;
+        int primerarray[] = new int[length];
+        int segundoarray[] = new int [length];
+
+        System.out.println("Primer array:");
+        for (int i = 0; i < length; i++){
+            primerarray[i] = i + 1;
+            System.out.println(primerarray[i]);
+        }
+        System.out.println("Segundo array:");
+        for (int i = 0; i < length; i++){
+            segundoarray[i] = primerarray[length - i - 1];
+            System.out.println(segundoarray[i]);
+        }
+        /*
+        Ejercicio 12: Crea un programa que cree un array de 10 enteros y luego muestre el siguiente menú
+        con distintas opciones:
+            a. Mostrar valores.
+            b. Introducir valor.
+            c. Salir.
+        La opción ‘a’ mostrará todos los valores por pantalla. La opción ‘b’ pedirá un valor V y una
+        posición P, luego escribirá V en la posición P del array. El menú se repetirá indefinidamente hasta
+        que el usuario elija la opción ‘c’ que terminará el programa.
+         */
+
     }
 }
