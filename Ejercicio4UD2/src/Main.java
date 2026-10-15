@@ -8,29 +8,11 @@ public class Main {
          */
         System.out.println("Ejercicio 1");
         Scanner scanner = new Scanner(System.in);
-        int numeros[] = new int[10];
-        System.out.println("Escribe el primer numero");
-        numeros[0] = scanner.nextInt();
-        System.out.println("Escribe el segundo numero");
-        numeros[1] = scanner.nextInt();
-        System.out.println("Escribe el tercer numero");
-        numeros[2] = scanner.nextInt();
-        System.out.println("Escribe el cuarto numero");
-        numeros[3] = scanner.nextInt();
-        System.out.println("Escribe el quinto numero");
-        numeros[4] = scanner.nextInt();
-        System.out.println("Escribe el sexto numero");
-        numeros[5] = scanner.nextInt();
-        System.out.println("Escribe el septimo numero");
-        numeros[6] = scanner.nextInt();
-        System.out.println("Escribe el octavo numero");
-        numeros[7] = scanner.nextInt();
-        System.out.println("Escribe el noveno numero");
-        numeros[8] = scanner.nextInt();
-        System.out.println("Escribe el decimo numero");
-        numeros[9] = scanner.nextInt();
+        double numeros[] = new double[10];
         for (int i = 0; i < numeros.length; i++) {
-            System.out.println("numero "+ i +" : " + numeros[i]);
+            System.out.println("Introduzca el numero " +(i+1) + ":");
+            numeros[i] = scanner.nextDouble();
+            System.out.println(numeros[i]);
         }
         /*
         Ejercicio 2: Crea un programa que pida diez números reales por teclado, los almacene en un array,
@@ -38,29 +20,11 @@ public class Main {
          */
         System.out.println("Ejercicio 2");
         scanner = new Scanner(System.in);
-        int suma = 0;
-        int numeros1[] = new int[10];
-        System.out.println("Escribe el primer numero");
-        numeros1[0] = scanner.nextInt();
-        System.out.println("Escribe el segundo numero");
-        numeros1[1] = scanner.nextInt();
-        System.out.println("Escribe el tercer numero");
-        numeros1[2] = scanner.nextInt();
-        System.out.println("Escribe el cuarto numero");
-        numeros1[3] = scanner.nextInt();
-        System.out.println("Escribe el quinto numero");
-        numeros1[4] = scanner.nextInt();
-        System.out.println("Escribe el sexto numero");
-        numeros1[5] = scanner.nextInt();
-        System.out.println("Escribe el septimo numero");
-        numeros1[6] = scanner.nextInt();
-        System.out.println("Escribe el octavo numero");
-        numeros1[7] = scanner.nextInt();
-        System.out.println("Escribe el noveno numero");
-        numeros1[8] = scanner.nextInt();
-        System.out.println("Escribe el decimo numero");
-        numeros1[9] = scanner.nextInt();
+        double suma = 0;
+        double numeros1[] = new double[10];
         for (int i = 0; i < numeros1.length; i++) {
+            System.out.println("Introduzca el numero " +(i+1) + ":");
+            numeros1[i] = scanner.nextDouble();
             suma += numeros1[i];
         }
         System.out.println("la suma de los valores es de: "+ suma);
@@ -70,40 +34,16 @@ public class Main {
          */
         System.out.println("Ejercicio 3");
         scanner = new Scanner(System.in);
-        int numeros2[] = new int[10];
-
-        System.out.println("Escribe el primer numero");
-        numeros2[0] = scanner.nextInt();
-        System.out.println("Escribe el segundo numero");
-        numeros2[1] = scanner.nextInt();
-        System.out.println("Escribe el tercer numero");
-        numeros2[2] = scanner.nextInt();
-        System.out.println("Escribe el cuarto numero");
-        numeros2[3] = scanner.nextInt();
-        System.out.println("Escribe el quinto numero");
-        numeros2[4] = scanner.nextInt();
-        System.out.println("Escribe el sexto numero");
-        numeros2[5] = scanner.nextInt();
-        System.out.println("Escribe el septimo numero");
-        numeros2[6] = scanner.nextInt();
-        System.out.println("Escribe el octavo numero");
-        numeros2[7] = scanner.nextInt();
-        System.out.println("Escribe el noveno numero");
-        numeros2[8] = scanner.nextInt();
-        System.out.println("Escribe el decimo numero");
-        numeros2[9] = scanner.nextInt();
-
-        int mayor = numeros2[0];
-        int menor = numeros2[0];
-
-        for (int i = 1; i < numeros2.length; i++) {
-           if(numeros2[i] > mayor){
-               mayor = numeros2[i];
-           } else if(numeros2[i] < menor){
-                menor = numeros2[i];
-            }
-
+        double numeros2[] = new double[10];
+        double mayor = - Double.MAX_VALUE;
+        double menor = Double.MAX_VALUE;
+        for (int i = 0; i < numeros2.length; i++) {
+            System.out.println("Introduzca el numero " +(i+1) + ":");
+            numeros2[i] = scanner.nextDouble();
+            mayor =Math.max(numeros2[i], mayor);
+            menor =Math.min(numeros2[i], menor);
         }
+
         System.out.println("el numero mayor es: "+ mayor);
         System.out.println("el numero menor es: "+ menor);
 
@@ -115,52 +55,12 @@ public class Main {
         scanner = new Scanner(System.in);
 
         int numeros3[] = new int[20];
-        System.out.println("Escribe el primer numero");
-        numeros3[0] = scanner.nextInt();
-        System.out.println("Escribe el segundo numero");
-        numeros3[1] = scanner.nextInt();
-        System.out.println("Escribe el tercer numero");
-        numeros3[2] = scanner.nextInt();
-        System.out.println("Escribe el cuarto numero");
-        numeros3[3] = scanner.nextInt();
-        System.out.println("Escribe el quinto numero");
-        numeros3[4] = scanner.nextInt();
-        System.out.println("Escribe el sexto numero");
-        numeros3[5] = scanner.nextInt();
-        System.out.println("Escribe el septimo numero");
-        numeros3[6] = scanner.nextInt();
-        System.out.println("Escribe el octavo numero");
-        numeros3[7] = scanner.nextInt();
-        System.out.println("Escribe el noveno numero");
-        numeros3[8] = scanner.nextInt();
-        System.out.println("Escribe el decimo numero");
-        numeros3[9] = scanner.nextInt();
-
-        System.out.println("Escribe el 11 numero");
-        numeros3[10] = scanner.nextInt();
-        System.out.println("Escribe el 12 numero");
-        numeros3[11] = scanner.nextInt();
-        System.out.println("Escribe el 13 numero");
-        numeros3[12] = scanner.nextInt();
-        System.out.println("Escribe el 14 numero");
-        numeros3[13] = scanner.nextInt();
-        System.out.println("Escribe el 15 numero");
-        numeros3[14] = scanner.nextInt();
-        System.out.println("Escribe el 16 numero");
-        numeros3[15] = scanner.nextInt();
-        System.out.println("Escribe el 17 numero");
-        numeros3[16] = scanner.nextInt();
-        System.out.println("Escribe el 18 numero");
-        numeros3[17] = scanner.nextInt();
-        System.out.println("Escribe el 19 numero");
-        numeros3[18] = scanner.nextInt();
-        System.out.println("Escribe el 20 numero");
-        numeros3[19] = scanner.nextInt();
-
         int sumapositivo = 0;
         int sumanegativo = 0;
 
         for (int i = 0; i < numeros3.length; i++) {
+            System.out.println("Introduzca el numero " +(i+1) + ":");
+            numeros3[i] = scanner.nextInt();
             if (numeros3[i] > 0){
                 sumapositivo += numeros3[i];
             } else if (numeros3[i] < 0){
@@ -177,56 +77,15 @@ public class Main {
         System.out.println("Ejercicio 5");
         scanner = new Scanner(System.in);
 
-        int numeros4[] = new int[20];
-        System.out.println("Escribe el primer numero");
-        numeros4[0] = scanner.nextInt();
-        System.out.println("Escribe el segundo numero");
-        numeros4[1] = scanner.nextInt();
-        System.out.println("Escribe el tercer numero");
-        numeros4[2] = scanner.nextInt();
-        System.out.println("Escribe el cuarto numero");
-        numeros4[3] = scanner.nextInt();
-        System.out.println("Escribe el quinto numero");
-        numeros4[4] = scanner.nextInt();
-        System.out.println("Escribe el sexto numero");
-        numeros4[5] = scanner.nextInt();
-        System.out.println("Escribe el septimo numero");
-        numeros4[6] = scanner.nextInt();
-        System.out.println("Escribe el octavo numero");
-        numeros4[7] = scanner.nextInt();
-        System.out.println("Escribe el noveno numero");
-        numeros4[8] = scanner.nextInt();
-        System.out.println("Escribe el decimo numero");
-        numeros4[9] = scanner.nextInt();
-
-        System.out.println("Escribe el 11 numero");
-        numeros4[10] = scanner.nextInt();
-        System.out.println("Escribe el 12 numero");
-        numeros4[11] = scanner.nextInt();
-        System.out.println("Escribe el 13 numero");
-        numeros4[12] = scanner.nextInt();
-        System.out.println("Escribe el 14 numero");
-        numeros4[13] = scanner.nextInt();
-        System.out.println("Escribe el 15 numero");
-        numeros4[14] = scanner.nextInt();
-        System.out.println("Escribe el 16 numero");
-        numeros4[15] = scanner.nextInt();
-        System.out.println("Escribe el 17 numero");
-        numeros4[16] = scanner.nextInt();
-        System.out.println("Escribe el 18 numero");
-        numeros4[17] = scanner.nextInt();
-        System.out.println("Escribe el 19 numero");
-        numeros4[18] = scanner.nextInt();
-        System.out.println("Escribe el 20 numero");
-        numeros4[19] = scanner.nextInt();
-
-        int suma1 = 0;
+        double numeros4[] = new double[20];
+        double suma1 = 0;
         for (int i = 0; i < numeros4.length; i++) {
+            System.out.println("Introduzca el numero " +(i+1) + ":");
+            numeros4[i] = scanner.nextDouble();
             suma1 += numeros4[i];
         }
-        int media = suma1 / numeros4.length;
+        double media = suma1 / numeros4.length;
         System.out.println("la media es de: "+ media);
-
         /*
         Ejercicio 6: Crea un programa que pida dos valores enteros N y M, luego cree un array de tamaño
         N, escriba M en todas sus posiciones y lo muestre por pantalla
@@ -257,7 +116,7 @@ public class Main {
         System.out.println("Introduce el valor Q: ");
         int q = scanner.nextInt();
 
-        int vector1[] = new int[q - p + 1];
+        int vector1[] = new int[Math.abs(p - q) + 1];
         for (int i = 0; i < vector1.length; i++){
             vector1[i] = p + i;
         }
@@ -394,6 +253,52 @@ public class Main {
         La opción ‘a’ mostrará todos los valores por pantalla. La opción ‘b’ pedirá un valor V y una
         posición P, luego escribirá V en la posición P del array. El menú se repetirá indefinidamente hasta
         que el usuario elija la opción ‘c’ que terminará el programa.
+         */
+        System.out.println("Ejercicio 12: ");
+        scanner = new Scanner(System.in);
+
+        int array2[] = new int[10];
+        String eleccion;
+
+        do {
+            System.out.println("Escoje una opcion:");
+            System.out.println("a. Mostrar:");
+            System.out.println("b. Introducir Valor:");
+            System.out.println("c. Salir:");
+
+            eleccion = scanner.nextLine();
+
+            switch (eleccion){
+                case "a":
+                    for (int i = 0; i < array2.length; i++){
+                        System.out.println(array2[i]);
+                    }
+                    break;
+                case "b":
+                    System.out.println("elige la poicion: ");
+                    int P = scanner.nextInt();
+                    System.out.println("elige el valor: ");
+                    int V = scanner.nextInt();
+                    if (P < 0 || P >= array2.length){
+                        System.out.println("elige una posicion que este dentro del rango");
+                    } else {
+                        array2[P] = V;
+                    }
+                    break;
+                case "c":
+                    System.out.println("El programa se cerrara");
+                    break;
+                default:
+                    System.out.println("Eliga un numero porfavor");
+                    break;
+            }
+        } while (!eleccion.equals("c"));
+        /*
+        Ejercicio 13: Crea un programa que permita al usuario almacenar una secuencia aritmética en un
+        array y luego mostrarla. Una secuencia aritmética es una serie de números que
+        comienza por un valor inicial V, y continúa con incrementos de I. Por ejemplo, con V=1
+        e I=2, la secuencia sería 1, 3, 5, 7, 9… Con V=7 e I=10, la secuencia sería 7, 17, 27, 37… El
+        programa solicitará al usuario V, I además de N (nº de valores a crear).
          */
 
     }
