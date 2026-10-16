@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -300,6 +301,43 @@ public class Main {
         e I=2, la secuencia sería 1, 3, 5, 7, 9… Con V=7 e I=10, la secuencia sería 7, 17, 27, 37… El
         programa solicitará al usuario V, I además de N (nº de valores a crear).
          */
+        System.out.println("Ejercicio 13:");
+        scanner = new Scanner(System.in);
+        System.out.println("Introduce el valor V: ");
+        int V1 = scanner.nextInt();
+        System.out.println("Introduce el valor I: ");
+        int I = scanner.nextInt();
+        System.out.println("Introduce el valor N: ");
+        int N = scanner.nextInt();
 
+        int vectorE13[] = new int[N];
+        vectorE13[0] = V1;
+        for (int i = 1; i < vectorE13.length; i++){
+            vectorE13[i] = vectorE13[i - 1] + I; //el -1 coge la posicion anterior
+        }
+        System.out.println("Array: ");
+        for (int i = 0; i < vectorE13.length; i++){
+            System.out.println(vectorE13[i] + " ");
+        }
+        /*
+        Ejercicio 14: Crea un programa que cree un array de enteros e introduzca la siguiente secuencia de
+        valores: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, etc. hasta introducir 10 diez veces, y luego la
+        muestre por pantalla.
+         */
+        System.out.println("Ejercicio 14:");
+
+        int numE14 = 10;
+        int tamanoarray = numE14 * (numE14 + 1) / 2;
+        int vectorE14[] = new int [tamanoarray];
+        int indiceactual = 0;
+
+        for (int numero = 1; numero <= numE14; numero++){
+
+            for (int i = 0; i < numero; i++){
+                vectorE14[indiceactual] = numero;
+                indiceactual++;
+            }
+        }
+        System.out.println(Arrays.toString(vectorE14));
     }
 }
