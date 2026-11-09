@@ -151,7 +151,7 @@ public class Biblioteca {
         }
         return libro;
     }
-    
+
     //Buscar Libros por Titulo (el titulo debe de ser unico)
     public Libro getLibroByTitulo(String titulo){
         Libro libro = null;
