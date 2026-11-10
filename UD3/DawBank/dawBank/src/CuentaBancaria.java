@@ -3,6 +3,7 @@ import java.time.format.DateTimeFormatter;
 
 public class CuentaBancaria {
 
+
     //Atributos
     private String iban;
     private String titular;
@@ -53,9 +54,8 @@ public class CuentaBancaria {
     //Crear metodo para registrar Movimientos
     private void registrarMovimiento(String tipo, double cantidad) {
 
-        String fecha = LocalDate.now().format(
-                DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        );
+        String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
 
         Movimiento movimiento = new Movimiento(
                 contadorID,

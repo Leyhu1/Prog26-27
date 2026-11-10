@@ -1,3 +1,4 @@
+import model.Genero;
 import model.Libro;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -6,7 +7,9 @@ void main() {
 
     Libro l1 = new Libro("122323nn", "El Señor de los Anillos", "JRR Tolkien");
 
-    System.out.println(l1.getAutor());
+    l1.setGenero(Genero.AVENTURAS);
+
+    //System.out.println(l1.getAutor());
 
     System.out.println(l1.infoLibro());
 }

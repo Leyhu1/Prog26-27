@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Movimiento {
 
     //Atributos
@@ -15,13 +17,13 @@ public class Movimiento {
     }
 
     //Mostrar la informacion
-    public String mostrarInfoMovimiento(){
-        String mostrarInfoMovimiento = "";
-        mostrarInfoMovimiento += "ID: " + this.id + "\n";
-        mostrarInfoMovimiento += "Fecha: " + this.fecha + "\n";
-        mostrarInfoMovimiento += "Tipo: " + this.tipo + "\n";
-        mostrarInfoMovimiento += "Cantidad: " + this.cantidad + "\n";
+    public void mostrarInfoMovimiento(){
 
-        return mostrarInfoMovimiento;
+        System.out.println("ID: " + id);
+        System.out.println("Fecha: " + fecha);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Cantidad: " + cantidad + " euros");
+        System.out.println("-------------------------");
+
     }
 }
