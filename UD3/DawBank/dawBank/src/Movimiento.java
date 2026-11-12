@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public class Movimiento {
 
     //Atributos
-    private int id; //me aseguro que nadie cambie su valor
+    private final int id; //me aseguro que nadie cambie su valor
     private String fecha;
     private String tipo;
     private double cantidad;
@@ -22,7 +22,7 @@ public class Movimiento {
         System.out.println("ID: " + id);
         System.out.println("Fecha: " + fecha);
         System.out.println("Tipo: " + tipo);
-        System.out.println("Cantidad: " + cantidad + " euros");
+        System.out.println("Cantidad: " + cantidad + " €");
         System.out.println("-------------------------");
 
     }

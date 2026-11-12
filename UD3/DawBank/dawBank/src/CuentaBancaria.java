@@ -32,6 +32,9 @@ public class CuentaBancaria {
     }
 
     //Getters y Setters
+    //Getter: Permite leer o recuperar el valor de un atributo privado
+    //Setter: Permite modificar o asignar un nuevo valor a un atributo privado
+
     public String getIban() {
         return this.iban;
     }

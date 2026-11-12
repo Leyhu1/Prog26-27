@@ -13,7 +13,7 @@ public class Main {
             if (!iban.matches("[A-Z]{2}[0-9]{22}")) {
                 System.out.println("IBAN incorrecto");
             }
-        } while (!iban.matches("[A-Z]{2}[0-9]{22}"));
+        } while (!iban.matches("[A-Z]{2}[0-9]{22}")); //Si no se cumple la condicion, se repetira hasta cumplirla
         System.out.println("IBAN correcto");
         do {
             System.out.println("Por favor, ingrese el Titular");
@@ -21,15 +21,18 @@ public class Main {
             if (titular == "" && titular == null) {
                 System.out.println("el titular es obligatorio");
             }
-        } while (titular == "" && titular == null);
+        } while (titular == "" && titular == null); //Si no se cumple la condicion, se repetira hasta cumplirla
         System.out.println("Titular correcto");
 
-        CuentaBancaria cuenta;
-        cuenta = new CuentaBancaria(iban, titular);
+        CuentaBancaria cuenta; //Declara una variable que podra almacenar un objeto de la clase CuentaBancaria
+        cuenta = new CuentaBancaria(iban, titular); //Creamos el objeto y lo asignamos a la variable
+
         System.out.println("Cuenta creada correctamente");
 
-        int opcion;
+        String opcion;
         do {
+            scanner = new Scanner(System.in);
+
             System.out.println("\n========== DAWBANK ==========");
             System.out.println("1. Datos de la cuenta");
             System.out.println("2. IBAN");
@@ -42,41 +45,52 @@ public class Main {
             System.out.println("=============================");
 
             System.out.println("Selecciona una opcion");
-            opcion = scanner.nextInt();
+            opcion = scanner.nextLine();
 
             switch (opcion){
-                case 1:
+                case "1":
                     cuenta.mostrarDatos();
                     break;
-                case 2:
+                case "2":
                     System.out.println("IBAN: " + cuenta.getIban());
                     break;
 
-                case 3:
+                case "3":
                     System.out.println("Titular: " + cuenta.getTitular());
                     break;
 
-                case 4:
-                    System.out.println("Saldo: " + cuenta.getSaldo() + " euros");
+                case "4":
+                    System.out.println("Saldo: " + cuenta.getSaldo() + " €");
                     break;
 
-                case 5:
+                case "5":
                     System.out.print("Cantidad a ingresar: ");
-                    double ingreso = scanner.nextDouble();
-                    cuenta.ingresar(ingreso);
-                    break;
+                    if (scanner.hasNextDouble()) { //hace la operacion de ingresar si se ha introducido un numero decimal
+                        double ingreso = scanner.nextDouble();
+                        cuenta.ingresar(ingreso);
+                    }
+                    else{
+                        System.out.println("Error, no se ha introducido ningun numero, intentelo de nuevo"); //si no se ha introducido un numero decimal, te salta una advertencia en vez de cerrarte el programa de repente
+                    }
 
-                case 6:
+                    break;
+                case "6":
                     System.out.print("Cantidad a retirar: ");
-                    double retirada = scanner.nextDouble();
-                    cuenta.retirar(retirada);
+                    if (scanner.hasNextDouble()) {
+                        double retirada = scanner.nextDouble();
+                        cuenta.retirar(retirada);
+                    }
+                    else {
+                        System.out.println("Error, no se ha introducido ningun numero, intentelo de nuevo");
+                    }
+
                     break;
 
-                case 7:
+                case "7":
                     cuenta.mostrarMovimientos();
                     break;
 
-                case 8:
+                case "8":
                     System.out.println("Gracias por utilizar DawBank.");
                     break;
 
@@ -84,6 +98,6 @@ public class Main {
                     System.out.println("ERROR: Opción no válida.");
                     break;
             }
-        } while (opcion != 8);
+        } while (!opcion.equals("8"));
     }
 }
