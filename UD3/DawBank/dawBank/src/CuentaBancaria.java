@@ -17,12 +17,6 @@ public class CuentaBancaria {
     //Constructor
     public CuentaBancaria(String iban, String titular){
 
-        if (!iban.matches("[A-Z]{2}[0-9]{22}")){
-            System.out.println("IBAN incorrecto");
-        }
-        if (titular == null){
-            System.out.println("el titular es obligatorio");
-        }
         this.iban = iban;
         this.titular = titular;
         this.saldo = 0;

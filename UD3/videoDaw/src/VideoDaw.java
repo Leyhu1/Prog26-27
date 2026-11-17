@@ -36,4 +36,36 @@ public class VideoDaw {
         return infoVideoDaw;
     }
 
+    //Mostrar peliculas registradas
+    public void mostarPeliculasRegistradas(){
+
+        if (nPeliculasRegistradas == 0) {
+            System.out.println("No hay Peliculas Registradas.");
+            return;
+        }
+
+        System.out.println("\n---Peliculas Registradas ---");
+
+        for (int i = 0; i < nPeliculasRegistradas; i++) {
+            peliculasRegistradas[i].infoPelicula();
+        }
+    }
+
+    //Mostrar Clientes registrados
+    public void mostarClientesRegistrados(){
+
+        if (nClientesRegistrados == 0) {
+            System.out.println("No hay Clientes Registrados.");
+            return;
+        }
+
+        System.out.println("\n--- Clientes Registrados ---");
+
+        for (int i = 0; i < nClientesRegistrados; i++) {
+            clientesRegistrados[i].infoClientes();
+        }
+    }
+
+    //Metodo alquilar una pelicula
+
 }
