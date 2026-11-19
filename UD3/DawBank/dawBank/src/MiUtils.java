@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MiUtils {
     private static String Sysytem;
 
-    public static leerDoublePantalla(String mensaje){
+    public static double leerDoublePantalla(String mensaje){
         Scanner scanner = new Scanner(System.in);
         IO.println(mensaje);
         return scanner.nextDouble();
@@ -26,7 +26,7 @@ public class MiUtils {
 
         do{
             texto = MiUtils.leerTextoPantalla(mensaje);
-            isOk = MiUtils.comprobarPatron((patron, texto);
+            isOk = MiUtils.comprobarPatron(patron, texto);
             if (!isOk){
                 IO.println("El formato es incorrecto");
             }
