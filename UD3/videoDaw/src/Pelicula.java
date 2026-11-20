@@ -11,8 +11,7 @@ public class Pelicula {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     //Atributos
-    private final int id;
-    private String cod;
+    private final int cod;
     private String titulo;
     private Genero genero;
     private LocalDate fechaRegistro;
@@ -21,55 +20,79 @@ public class Pelicula {
     private boolean isAlquilada;
 
     //Constructores
-    public Pelicula(String cod, String titulo) {
-        this.cod = cod;
+    public Pelicula(String titulo, Genero genero) {
+        this.cod = contadorTotal;
         this.titulo = titulo;
-        this.genero = Genero.Accion;
+        this.genero = genero;
         this.fechaRegistro = LocalDate.now();
         this.fechaBaja = LocalDate.now();
         this.fechaAlquiler = LocalDateTime.now();
         this.isAlquilada = false;
-        this.id = contadorTotal;
         contadorTotal++;
     }
 
-    public Pelicula(String cod, String titulo, Genero genero, LocalDate fechaRegistro, LocalDate fechaBaja, LocalDateTime fechaAlquiler, boolean isAlquilada) {
-        this.cod = cod;
+    public Pelicula(String titulo, Genero genero, LocalDate fechaRegistro, LocalDate fechaBaja, LocalDateTime fechaAlquiler, boolean isAlquilada) {
         this.titulo = titulo;
         this.genero = genero;
         this.fechaRegistro = fechaRegistro;
         this.fechaBaja = fechaBaja;
         this.fechaAlquiler = fechaAlquiler;
         this.isAlquilada = isAlquilada;
-        this.id = contadorTotal;
+        this.cod = contadorTotal;
         contadorTotal++;
+    }
+
+    //getter y setter
+    public String getCod(){
+        return String.format("P-0%s",this.cod);
+    }
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public Genero getGenero(){
+        return genero;
+    }
+
+    public LocalDate getFechaRegistro(){
+        return fechaRegistro;
+    }
+
+    public LocalDate getFechaBaja(){
+        return fechaBaja;
+    }
+
+    public LocalDateTime getFechaAlquiler(){
+        return fechaAlquiler;
+    }
+
+    public boolean isAlquilada(){
+        return isAlquilada;
     }
 
     //Mostrar informacion peliculas
     public String infoPelicula() {
-        String infoPelicula = "";
-        infoPelicula += "ID: " + this.id + "\n";
-        infoPelicula += "Titulo: " + this.titulo + "\n";
-        infoPelicula += "Codigo: " + this.cod + "\n";
-        infoPelicula += "Genero: " + this.genero.name() + "\n";
-        infoPelicula += "Fecha de Registro: " + this.fechaRegistro.format(formatter) + "\n";
-        infoPelicula += "Fecha de Baja: " + this.fechaBaja.format(formatter) + "\n";
-        infoPelicula += "Fecha de Alquiler: " + this.fechaAlquiler.format(formatter) + "\n";
-        infoPelicula += "Esta Alquilada: " + this.isAlquilada + "\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Titulo: ").append(this.titulo).append("\n");
+        sb.append("Codigo: ").append(this.cod).append("\n");
+        sb.append("Genero: ").append(this.genero).append("\n");
+        sb.append("Fecha de registro: ").append(this.fechaRegistro).append("\n");
+        sb.append("Fecha de Baja: ").append(this.fechaBaja).append("\n");
+        sb.append("Fecha Alquiler: ").append(this.fechaAlquiler).append("\n");
+        sb.append("Esta alquilada: ").append(this.isAlquilada).append("\n");
 
-        return infoPelicula;
+        return sb.toString();
 
     }
+    public boolean alquiler(){
+        this.isAlquilada = true;
+        fechaAlquiler = LocalDateTime.now();
+        return isAlquilada;
+    }
 
-    //Mostrar info Peliculas alquiladas
-    public String infoPeliculasAlquiladas(){
-        String infoPeliculasAlquiladas = "";
-        infoPeliculasAlquiladas += "ID: " + this.id + "\n";
-        infoPeliculasAlquiladas += "Titulo: " + this.titulo + "\n";
-        infoPeliculasAlquiladas += "Codigo: " + this.cod + "\n";
-        infoPeliculasAlquiladas += "Genero: " + this.genero.name() + "\n";
-        infoPeliculasAlquiladas += "Fecha de Alquiler: " + this.fechaAlquiler.format(formatter) + "\n";
-
-        return infoPeliculasAlquiladas;
+    public boolean devolver(){
+        this.isAlquilada = false;
+        return isAlquilada;
     }
 }

@@ -1,11 +1,14 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Cliente {
 
+    //Contador
+    private static int contadorSocio = 0;
     //Atributos
     private String dni;
     private String nombre;
-    private String numSocio;
+    private final int numSocio;
     private String direccion;
     private LocalDate fechaNacimiento;
     private LocalDate fechaBajaCliente;
@@ -14,44 +17,94 @@ public class Cliente {
     private final int dimensionInicial = 100;
 
     //Constructores
-    public Cliente(String dni, String nombre, String numSocio, String direccion, LocalDate fechaNacimiento, LocalDate fechaBajaCliente) {
+    public Cliente(String dni, String nombre, String direccion, LocalDate fechaNacimiento, LocalDate fechaBajaCliente) {
         this.dni = dni;
         this.nombre = nombre;
-        this.numSocio = numSocio;
+        this.numSocio = contadorSocio;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaBajaCliente = fechaBajaCliente;
         this.peliculasAlquiladas = new Pelicula[this.dimensionInicial];
         this.ultPeliculasAlquiladas = 0;
+        contadorSocio++;
     }
 
+    //Getter y Setter
+
+    public String getDni(){
+        return dni;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public String getNumSocio(){
+        return String.format("S-0%s",this.numSocio);
+    }
+
+    public String getDireccion(){
+        return direccion;
+    }
+
+    public LocalDate getFechaNacimiento(){
+        return fechaNacimiento;
+    }
+
+    public LocalDate getFechaBajaCliente(){
+        return fechaBajaCliente;
+    }
+
+    public int getUltPeliculasAlquiladas(){
+        return ultPeliculasAlquiladas;
+    }
 
     //Mostrar informacion Clientes
     public String infoClientes() {
-        String infoClientes = "";
-        infoClientes += "DNI: " + this.dni + "\n";
-        infoClientes += "Nombre: " + this.nombre + "\n";
-        infoClientes += "numSocio: " + this.numSocio + "\n";
-        infoClientes += "Direccion: " + this.direccion + "\n";
-        infoClientes += "Fecha de Nacimiento: " + this.fechaNacimiento + "\n";
-        infoClientes += "Fecha de Baja: " + this.fechaBajaCliente + "\n";
-        infoClientes += "Numero peliculas alquiladas: " + this.ultPeliculasAlquiladas + "\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("DNI: ").append(this.dni).append("\n");
+        sb.append("Nombre: ").append(this.nombre).append("\n");
+        sb.append("Direccion: ").append(this.direccion).append("\n");
+        sb.append("Fecha de Nacimiento: ").append(this.fechaNacimiento).append("\n");
+        sb.append("Fecha de Baja del cliente: ").append(this.fechaBajaCliente).append("\n");
+        sb.append("Peliculas Registradas: ").append(this.ultPeliculasAlquiladas).append("\n");
+        sb.append("Numero de Socio: ").append(this.numSocio).append("\n");
 
-        return infoClientes;
+        return sb.toString();
 
     }
     //Mostrar informacion Peliculas Alquiladas
-    public void mostrarPeliculasAlquiladas() {
+    public String mostrarPeliculasAlquiladas() {
 
-        if (ultPeliculasAlquiladas == 0) {
-            System.out.println("No hay Peliculas Alquiladas.");
-            return;
+        StringBuilder sb = new StringBuilder();
+        if(this.ultPeliculasAlquiladas > 0){
+            for(int i=0; i<this.ultPeliculasAlquiladas;i++){
+                sb.append(this.peliculasAlquiladas[i].infoPelicula()).append("\n");
+            }
+        }else{
+            sb.append("No hay Peliculas alquiladas");
         }
 
-        System.out.println("\n--- HISTORIAL DE Peliculas Alquiladas ---");
-
-        for (int i = 0; i < ultPeliculasAlquiladas; i++) {
-            peliculasAlquiladas[i].infoPeliculasAlquiladas();
-        }
+        return sb.toString();
     }
+    //Alquilar pelicula
+    public boolean addPelicula(Pelicula p1){
+        boolean isAdd = false;
+        if(p1 != null){
+            this.peliculasAlquiladas[ultPeliculasAlquiladas] = p1;
+            ultPeliculasAlquiladas++;
+        }
+        return isAdd;
+    }
+
+    //Devolver Pelicula
+    public boolean quitarPelicula(Pelicula p1){
+        boolean isRemove = false;
+        if(p1 != null){
+            ultPeliculasAlquiladas--;
+        }
+        return isRemove;
+    }
+
+
 }

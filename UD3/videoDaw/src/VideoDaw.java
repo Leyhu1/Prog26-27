@@ -24,6 +24,27 @@ public class VideoDaw {
         this.nClientesRegistrados = 0;
     }
 
+    //Getter y Setter
+    public String getCif() {
+        return cif;
+    }
+
+    public String getDireccionVideoDaw() {
+        return direccionVideoDaw;
+    }
+
+    public LocalDate getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public Pelicula[] getPeliculasRegistradas() {
+        return peliculasRegistradas;
+    }
+
+    public Cliente[] getClientesRegistrados() {
+        return clientesRegistrados;
+    }
+
     //Mostrar informacion VideoDaw
     public String infoVideoDaw() {
         String infoVideoDaw = "";
@@ -37,35 +58,112 @@ public class VideoDaw {
     }
 
     //Mostrar peliculas registradas
-    public void mostarPeliculasRegistradas(){
+    public String mostarPeliculasRegistradas(){
 
-        if (nPeliculasRegistradas == 0) {
-            System.out.println("No hay Peliculas Registradas.");
-            return;
+        StringBuilder sb = new StringBuilder();
+        if(this.nPeliculasRegistradas > 0){
+            for(int i=0; i<this.nPeliculasRegistradas;i++){
+                sb.append(this.peliculasRegistradas[i].infoPelicula()).append("\n");
+            }
+        }else{
+            sb.append("No hay Peliculas Registradas");
         }
 
-        System.out.println("\n---Peliculas Registradas ---");
-
-        for (int i = 0; i < nPeliculasRegistradas; i++) {
-            peliculasRegistradas[i].infoPelicula();
-        }
+        return sb.toString();
     }
 
     //Mostrar Clientes registrados
-    public void mostarClientesRegistrados(){
+    public String mostarClientesRegistrados(){
 
-        if (nClientesRegistrados == 0) {
-            System.out.println("No hay Clientes Registrados.");
-            return;
+        StringBuilder sb = new StringBuilder();
+        if(this.nClientesRegistrados > 0){
+            for(int i=0; i<this.nClientesRegistrados;i++){
+                sb.append(this.clientesRegistrados[i].infoClientes()).append("\n");
+            }
+        }else{
+            sb.append("No hay Clientes Registrados");
         }
 
-        System.out.println("\n--- Clientes Registrados ---");
-
-        for (int i = 0; i < nClientesRegistrados; i++) {
-            clientesRegistrados[i].infoClientes();
-        }
+        return sb.toString();
     }
 
-    //Metodo alquilar una pelicula
+    //Metodo registrar una pelicula
+    public boolean registrarPelicula(Pelicula p){
 
+       boolean isAdd = false;
+        if(p != null){
+            this.peliculasRegistradas[nPeliculasRegistradas] = p;
+            nPeliculasRegistradas++;
+            p.isAlquilada();
+        }
+        return isAdd;
+    }
+
+    //Metodo registrar un Cliente
+    public boolean registrarCliente(Cliente c){
+
+        boolean isAdd = false;
+        if(c != null){
+            this.clientesRegistrados[nClientesRegistrados] = c;
+            nClientesRegistrados++;
+        }
+        return isAdd;
+    }
+
+    //Posiciones
+    public Cliente posicionCliente(int i){
+        return this.clientesRegistrados[i];
+    }
+
+    public Pelicula posicionPelicula(int i){
+        return this.peliculasRegistradas[i];
+    }
+
+    //alquilar pelicula
+    public boolean alquilarPelicula(int c, int p){
+        this.posicionCliente(c);
+        this.posicionPelicula(p).alquiler();
+        boolean isAdd = false;
+        return isAdd;
+    }
+
+    //Devolver Pelicula
+    public boolean devolverPelicula(int c, int p){
+        this.posicionCliente(c);
+        this.posicionPelicula(p).devolver();
+        boolean isRemove = false;
+        return isRemove;
+    }
+
+    //Metodo dar de baja a un cliente
+    public boolean darBajaCliente(Cliente cliente, int c){
+        boolean quitarCliente = false;
+        if (cliente != null){
+            this.clientesRegistrados[nClientesRegistrados] = null;
+            for (int i = 0; i < nClientesRegistrados; i++){
+                this.clientesRegistrados[nClientesRegistrados - 1] = this.clientesRegistrados[i];
+
+            }
+            this.clientesRegistrados[nClientesRegistrados - 1] = null;
+            nClientesRegistrados--;
+            quitarCliente = true;
+        }
+        return quitarCliente;
+    }
+
+    //Metodo dar de baja a una pelicula
+    public boolean darBajaPelicula(Pelicula pelicula, int p){
+        boolean quitarPelicula = false;
+        if (p >= 0 && p < nPeliculasRegistradas){
+            this.peliculasRegistradas[nPeliculasRegistradas] = null;
+            for (int i = 0; i < nPeliculasRegistradas; i++){
+                this.peliculasRegistradas[nPeliculasRegistradas - 1] = this.peliculasRegistradas[i];
+
+            }
+            this.peliculasRegistradas[nPeliculasRegistradas - 1] = null;
+            nPeliculasRegistradas--;
+            quitarPelicula = true;
+        }
+        return quitarPelicula;
+    }
 }
