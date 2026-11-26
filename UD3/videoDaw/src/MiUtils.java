@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MiUtils {
@@ -11,6 +13,9 @@ public class MiUtils {
             return scanner.nextLine();
         }
         return "";
+    }
+    public static void imprimir(String mensaje){
+        System.out.println(mensaje);
     }
 
     public static String leerTextoPantalla(String mensaje){
@@ -39,4 +44,16 @@ public class MiUtils {
 
         return texto;
     }
+
+    public static LocalDate fechaconformato(){
+        Scanner scanner = new Scanner(System.in);
+
+        DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        MiUtils.imprimir("\nEscribe la fecha de nacimiento en formato DD/MM/AAAA");
+        String dateString = scanner.nextLine();
+
+        LocalDate fechaLocalDate = LocalDate.parse(dateString, formatter);
+        return fechaLocalDate;
+    }
+
 }

@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 public class Cliente {
 
@@ -17,13 +17,12 @@ public class Cliente {
     private final int dimensionInicial = 100;
 
     //Constructores
-    public Cliente(String dni, String nombre, String direccion, LocalDate fechaNacimiento, LocalDate fechaBajaCliente) {
+    public Cliente(String dni, String nombre, String direccion, LocalDate fechaNacimiento) {
         this.dni = dni;
         this.nombre = nombre;
         this.numSocio = contadorSocio;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
-        this.fechaBajaCliente = fechaBajaCliente;
         this.peliculasAlquiladas = new Pelicula[this.dimensionInicial];
         this.ultPeliculasAlquiladas = 0;
         contadorSocio++;

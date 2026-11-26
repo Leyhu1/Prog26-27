@@ -31,16 +31,6 @@ public class Pelicula {
         contadorTotal++;
     }
 
-    public Pelicula(String titulo, Genero genero, LocalDate fechaRegistro, LocalDate fechaBaja, LocalDateTime fechaAlquiler, boolean isAlquilada) {
-        this.titulo = titulo;
-        this.genero = genero;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaBaja = fechaBaja;
-        this.fechaAlquiler = fechaAlquiler;
-        this.isAlquilada = isAlquilada;
-        this.cod = contadorTotal;
-        contadorTotal++;
-    }
 
     //getter y setter
     public String getCod(){

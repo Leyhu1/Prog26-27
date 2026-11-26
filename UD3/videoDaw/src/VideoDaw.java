@@ -14,10 +14,10 @@ public class VideoDaw {
     private final int dimensionInicialClientes = 100;
 
     //Constructores
-    public VideoDaw(String cif, String direccionVideoDaw, LocalDate fechaAlta) {
+    public VideoDaw(String cif, String direccionVideoDaw) {
         this.cif = cif;
         this.direccionVideoDaw = direccionVideoDaw;
-        this.fechaAlta = fechaAlta;
+        this.fechaAlta = LocalDate.now();
         this.peliculasRegistradas = new Pelicula[this.dimensionInicialPeliculas];
         this.clientesRegistrados = new Cliente[this.dimensionInicialClientes];
         this.nPeliculasRegistradas = 0;
@@ -106,6 +106,7 @@ public class VideoDaw {
         if(c != null){
             this.clientesRegistrados[nClientesRegistrados] = c;
             nClientesRegistrados++;
+            isAdd = true;
         }
         return isAdd;
     }
