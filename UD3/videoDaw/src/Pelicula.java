@@ -76,7 +76,7 @@ public class Pelicula {
 
     }
     public boolean alquiler(){
-        this.isAlquilada = true;
+        this.isAlquilada = false;
         fechaAlquiler = LocalDateTime.now();
         return isAlquilada;
     }

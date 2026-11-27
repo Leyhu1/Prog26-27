@@ -66,7 +66,7 @@ public class Cliente {
         sb.append("Direccion: ").append(this.direccion).append("\n");
         sb.append("Fecha de Nacimiento: ").append(this.fechaNacimiento).append("\n");
         sb.append("Fecha de Baja del cliente: ").append(this.fechaBajaCliente).append("\n");
-        sb.append("Peliculas Registradas: ").append(this.ultPeliculasAlquiladas).append("\n");
+        sb.append("Peliculas Alquiladas: ").append(this.ultPeliculasAlquiladas).append("\n");
         sb.append("Numero de Socio: ").append(this.numSocio).append("\n");
 
         return sb.toString();
@@ -92,6 +92,7 @@ public class Cliente {
         if(p1 != null){
             this.peliculasAlquiladas[ultPeliculasAlquiladas] = p1;
             ultPeliculasAlquiladas++;
+            isAdd = true;
         }
         return isAdd;
     }

@@ -110,7 +110,25 @@ void main() {
                 }
                 break;
             case "4":
+                if (videoClub != null){
+                    if (nuevoCliente != null && nuevaPelicula != null) {
+                        scanner = new Scanner(System.in);
+                        System.out.println(videoClub.mostarClientesRegistrados());
+                        System.out.println("Seleccione al cliente que quiere alquilar su pelicula mediante su Numero de socio");
+                        int c1 = scanner.nextInt();
 
+                        System.out.println(videoClub.mostarPeliculasRegistradas());
+                        System.out.println("Seleccione la pelicula para alquilar mediante su Codigo");
+                        int p1 = scanner.nextInt();
+
+                        videoClub.alquilarPelicula(c1, p1);
+                    } else {
+                        System.out.println("Faltan datos por poner");
+                    }
+                } else {
+                    System.out.println("No se ha registrado el Videoclub, registralo primero");
+                }
+                break;
         }
 
     }while (!opcion.equalsIgnoreCase("8"));
